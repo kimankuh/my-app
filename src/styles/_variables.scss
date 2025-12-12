@@ -1,0 +1,55 @@
+// ---------------------------
+// 🎨 Color
+// ---------------------------
+
+// 기본 색상
+$color-primary: #007bff;
+$color-secondary: #6c757d;
+$color-success: #28a745;
+$color-danger: #dc3545;
+$color-warning: #ffc107;
+$color-info: #17a2b8;
+
+// 중립 색상(배경/글자)
+$color-black: #000;
+$color-white: #fff;
+$color-gray-100: #f8f9fa;
+$color-gray-200: #e9ecef;
+$color-gray-300: #dee2e6;
+$color-gray-400: #ced4da;
+$color-gray-500: #adb5bd;
+$color-gray-600: #6c757d;
+$color-gray-700: #495057;
+$color-gray-800: #343a40;
+$color-gray-900: #212529;
+
+// ---------------------------
+// 🔤 Typography
+// ---------------------------
+
+$font-family-base: 'Noto Sans KR', sans-serif;
+
+$font-size-sm: 12px;
+$font-size-md: 14px;
+$font-size-lg: 16px;
+$font-size-xl: 20px;
+
+// ---------------------------
+// 📏 Spacing (여백)
+// ---------------------------
+
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 12px;
+$spacing-lg: 16px;
+$spacing-xl: 24px;
+
+// ---------------------------
+// 🧱 Border / Radius
+// ---------------------------
+
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+
+$border-color: $color-gray-300;

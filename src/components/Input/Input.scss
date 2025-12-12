@@ -1,0 +1,39 @@
+@import "../../styles/variables";
+
+.ui-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 100%;    
+
+    .ui-label {
+        margin-bottom:6px;
+        font-size:14px;
+        font-weight:600;
+        color: $color-gray-700;
+    }
+
+    .input {
+        padding: 10px 12px;
+        font-size:15px;
+        border:1px solid $color-gray-400;
+        border-radius: 6px;        
+
+        &:focus {
+            outline: none;
+            border-color: $color-primary;
+            box-shadow: 0,0,0,2px,rgba($color-primary, 0.2);
+        }
+
+        &.error {
+            border-color: $color-danger;
+            box-shadow: 0,0,0,2px,rgba($color-danger, 0.2);
+        }
+    }
+
+    .ui-error {
+        margin-top: 4px;
+        color: $color-danger;
+        font-size: 13px;
+    }
+}

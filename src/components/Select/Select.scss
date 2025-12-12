@@ -1,0 +1,27 @@
+@import "../../styles/variables";
+
+.ui-select {
+    display: flex;
+    flex-direction: column;
+    gap: 6px; // 주변에 인접한 요소가 있을 경우만 간격 확보
+
+    .select {
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid $color-gray-400;
+        border-radius: 6px;
+
+        &:focus {
+            border-color: $color-primary;
+        }
+
+        &.error {
+            border-color: $color-danger;
+        }
+    }
+
+    .ui-error {
+        color: $color-danger;
+        font-size: 12px;
+    }
+}
