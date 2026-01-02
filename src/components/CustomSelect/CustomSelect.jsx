@@ -1,4 +1,5 @@
 import React from "react";
+import {useState} from "react";
 import "./CustomSelect";
 
 const CustomSelect = ({
@@ -12,25 +13,36 @@ const CustomSelect = ({
         {id:3, label:'peach', value:'복숭아'},
     ],
     placeholder = "선택해 주세요",
-    onChange,
+    onChange,// 진짜 이벤트가 아니라 부모가 내려준 콜백 함수. 컴포넌트에 사용되는 경우 prop중에 하나일 뿐.
     className,
+    disabled = false,
     error,
 }) => {
+    const selectedValue = options.find((opt) => opt.value === value);// 선택된 value
+    const [open, setOpen] = useState(false);// select 열림/닫힘
+    const classes = ['ui-select-wrap', error && 'error', disabled && 'disabled'].filter(Boolean).join(" ");
+    const customOptionSelect = (val) => {
+
+    }
+    console.log('open', open);
     return (
-        <div className={`ui-select-wrap ${error ? "error": ""} ${disabled ? "disabled" : ""}`}>
+        <div className={classes}>
             {label && <label className="ui-label">{label}</label>}
 
             {/* custom select */}
-            <div className="ui-custom-select">
-                <span>{placeholder}</span>
+            <div className="ui-custom-select" onClick={() => !disabled && setOpen(!open)}>
+                <span>{selectedValue ? selectedValue.value : placeholder}</span>
                 <span className={`select-arrow ${open ? "open" : ""}`}>▼</span>
             </div>
 
             {/* custom option */}
             <div className="ui-custom-options">
                 {options.map((opt) => {
+                    // console.log('opt', opt)
                     return (
-                        <div key={opt.value} className={`ui-custom-option ${opt.value === value ? "selected" : ""}`}>{opt.value}</div>
+                        <div key={opt.value} className={`ui-custom-option ${opt.value === value ? "selected" : ""}`} onClick={() => customOptionSelect(opt.value)}>
+                            {opt.value}
+                        </div>
                     )
                 })}
             </div>
@@ -39,6 +51,7 @@ const CustomSelect = ({
             <select id={id} title={title}>
                 <option>{placeholder}</option>
                 {options.map((opt) => {
+                    // console.log('opt2', opt)
                     return (
                     <option key={opt.id} value={opt.label}>{opt.value}</option>
                     )
