@@ -12,7 +12,7 @@ const Select = ({
         {value:"apple", label: "사과"},
         {value:"peach", label: "복숭아"},
     ],    
-    placeholder = "선택해셈",
+    placeholder = "선택하세요~~",
     error = "",
     disabled = false,
     onChange,
@@ -22,7 +22,7 @@ const Select = ({
         <div className="ui-select">
             {label && <label className="ui-label">{label}</label>}
 
-            <select id={id} title={title} className={classes} value={value} disabled={disabled} onChange={onChange}>
+            <select id={id} title={title} className={classes} disabled={disabled} onChange={onChange}>
                 <option>{placeholder}</option>
                 {options.map((opt) => {
                     // console.log('opt', opt);

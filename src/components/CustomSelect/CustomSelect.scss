@@ -1,2 +1,16 @@
 @import "../../styles/variables";
 
+.ui-custom-select {
+    position: relative;
+    cursor: pointer;
+
+    .select-options {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform:translateX(-50%);
+        width: 100px;
+        background: #fff;
+        border: 1px solid #ddd;
+    }
+}

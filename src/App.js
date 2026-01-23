@@ -11,6 +11,7 @@ function App() {
     const [name, setName] = useState("");
     const [desc, setDesc] = useState("");
     const [contry, setContry] = useState("");
+    const [fruit, setFruit] = useState("");
     const contryOptions = [
         {id:1, value:"kr", label: "한국"},
         {id:2, value:"us", label: "미국"},
@@ -21,7 +22,7 @@ function App() {
     <div className="App">
         <h2>&gt;&gt; CustomSelect &lt;&lt;</h2>
         <div style={{margin:"0 auto", padding:"0 50px 50px", width:"300px"}}>
-            <CustomSelect id="customSelectID" label="국가 선택" value={contry} options={contryOptions} placeholder="국가를 선택하세요" onChange={(e) => {setContry(e.target.value)
+            <CustomSelect id="customSelectID" label="국가 선택" value={contry} options={contryOptions} placeholder="선택하세요~!!" onChange={(e) => {setContry(e.target.value)
                 // console.log(e.target.value)
             }} error={!contry && "국가를 선택하세요!!!"} />
             <p>선택값: {contry}</p>
@@ -29,10 +30,10 @@ function App() {
 
         <h2>&gt;&gt; Select &lt;&lt;</h2>
         <div style={{margin:"0 auto", padding:"0 50px 50px", width:"300px"}}>
-            <Select id="selectID" label="국가 선택" value={contry} options={contryOptions} placeholder="국가를 선택하세요" onChange={(e) => {setContry(e.target.value)
+            <Select id="selectID" label="과일 선택" value={fruit} onChange={(e) => {setFruit(e.target.value)
                 // console.log(e.target.value)
-            }} error={!contry && "국가를 선택하세요!!!"} />
-            <p>선택값: {contry}</p>
+            }} error={!fruit && "과일을 선택하세요!!!"} />
+            <p>선택값: {fruit}</p>
         </div>  
 
         <h2>&gt;&gt; Textarea &lt;&lt;</h2>
@@ -52,6 +53,11 @@ function App() {
             <Button>기본 버튼</Button>
             <Button size="sm" color="secondary">작은 버튼</Button>
             <Button size="lg">큰 버튼</Button>
+            <Button><span>큰 버튼</span></Button>
+            <Button>
+                <strong>저장</strong>
+                <span className='desc'>임시 저장</span>
+            </Button>
         </div>
     </div>
   );
