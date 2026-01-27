@@ -18,14 +18,17 @@ function App() {
         {id:3, value:"jp", label: "일본"},
     ];
 
+    const selectedOption = contryOptions.find(opt => opt.value === contry)
+
   return (
     <div className="App">
         <h2>&gt;&gt; CustomSelect &lt;&lt;</h2>
         <div style={{margin:"0 auto", padding:"0 50px 50px", width:"300px"}}>
-            <CustomSelect id="customSelectID" label="국가 선택" value={contry} options={contryOptions} placeholder="선택하세요~!!" onChange={(e) => {setContry(e.target.value)
+            <CustomSelect id="customSelectID" label="국가 선택" value={contry} options={contryOptions} placeholder="선택하세요~!!" onChange={setContry}
+                // onChange={(e) => {setContry(e.target.value)} => 이벤트를 넘기는 case. 커스텀 폼요소에선 비추
                 // console.log(e.target.value)
-            }} error={!contry && "국가를 선택하세요!!!"} />
-            <p>선택값: {contry}</p>
+             error={!contry && "[에러메세지]국가를 선택하세요!!!"} />
+            <p>선택값: {selectedOption ? selectedOption.label : '없음'}</p>
         </div>
 
         <h2>&gt;&gt; Select &lt;&lt;</h2>

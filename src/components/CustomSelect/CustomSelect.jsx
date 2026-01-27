@@ -60,13 +60,13 @@ const CustomSelect = ({
 
     // 6) 옵션 클릭(값 변경 + 닫기)
     const handleSelect = (option) => {
-        onChange(option.value);// 부모의 state에 값 변경 요청
-        setOpen(false);// 드롭다운 닫기
+        onChange(option.value);// 부모의 option.value(문자열)로 state에 값 변경 요청 => 데이터 변경
+        setOpen(false);// 드롭다운 닫기 => UI 변경
 
         console.log('클릭')
     }
 
-    // 7) 바깥 클릭 시 닫히도록 처리
+    // 7) 바깥 클릭 시 닫히도록 처리 => DOM 이벤트라 useEffect 사용
     useEffect(() => {
         const handleClickOutside = (e) => {
             if(selectRef.current && !selectRef.current.contains(e.target)){
@@ -82,7 +82,9 @@ const CustomSelect = ({
         }
 
         document.addEventListener('mousedown', handleClickOutside);
-        return () => document.addEventListener('mousedown', handleClickOutside);
+
+        // 컴포넌트 사라질 때 이벤트 제거
+        return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
     return (
