@@ -1,27 +1,22 @@
 import "./CustomCheckbox_02.scss";
 
-export default function Checkbox({
-    id,
+export default function CustomCheckbox_02({
     label,
     checked,
     onChange,
-    disabled,
 }){
     // input change 이벤트 처리
-    const handleChange = (e) => {
-        onChange(e.target.checked);
+    const handleClick = () => {
+        onChange(!checked);// 클릭할 때마다 상태 바꿔줘~ 부모에 요청
+        console.log('클릭???', checked)
     }
 
-    return (
-        <div className={`custom-checkbox ${disabled ? "disabled" : ""}`}>
-            {/* 실제 상태를 가진 input - 바뀌지 않는 건 type, 그 외엔 props로 받기 */}
-            <input type="checkbox" id={id} checked={checked} onChange={handleChange} disabled={disabled} />
+    const classes = ['custom-toggle-checkbox', checked && 'checked'].filter(Boolean).join(' ');
 
-            {/* 클릭용 label + 커스텀 UI */}
-            <label htmlFor={id}>
-                <span className="box"></span>
-                <span className="label-text">{label}</span>
-            </label>
-        </div>
+    return (
+        <button type="button" className={classes} onClick={handleClick}>
+            <span className="box"></span>
+            <span>{label}</span>
+        </button>
     );
 }

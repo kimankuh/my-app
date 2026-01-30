@@ -7,6 +7,7 @@ import Select from './components/Select';
 import CustomSelect from './components/CustomSelect/CustomSelect';
 import Checkbox from './components/Checkbox/Checkbox';
 import CustomCheckbox from './components/CustomCheckbox/CustomCheckbox';
+import CustomCheckbox_02 from './components/CustomCheckbox_02/CustomCheckbox_02';
 
 
 function App() {
@@ -26,21 +27,38 @@ function App() {
         {value: "css", label: "CSS"},
         {value: "react", label: "React"},
     ];
-    const [checked, setChecked] = useState({
-        agree: false,
+    const [checked, setChecked] = useState({// 체크박스가 여러개인 경우, 객체 형태로 관리. 
+        agree: false,// 체크 상태를 state를 통해 알게됨(조건문 사용시)
         agree2: false,
+        checkedAgree: false,// 초기값은 여기서 설정
     });
+
+    function handleChange(key){// handleChange의 매개변수key를 받고 함수를 하나 더 실행해라
+        return function(value) {
+            setChecked(prev => ({// 소괄호를 한 번 더 싸준건 "객체"를 자동 리턴한다는 의미. 이건 함수 블록 아님. 이 checked라는 state는 객체니까
+                ...prev,// 1. 객체를 복사하고 
+                [key]: value,// 2. 이 추가된 요소랑 합체한다. 대괄호는 객체의 key를 변수값으로 쓰겠다는 뜻. 계산된 프로퍼티 이름(?)
+            }));
+        };
+    }
 
 
     return (
         <div className="App">
+            <h2 className="title-h2">Checkbox - button used</h2>
+            <div className="con-box">
+                <CustomCheckbox_02 label="동의" checked={checked.checkedAgree} onChange={handleChange("checkedAgree")} />
+                {/* state로 상태를 업데이트 시키고 업데이트 된 값을 checked에 가져옴*/}
+                <p>체크 상태 : {checked.checkedAgree ? 'true' : 'false'}</p>
+            </div>
+
             <h2 className="title-h2">Checkbox(custom)</h2>
             <div className="con-box">
                 <CustomCheckbox id="CustomCheckbox_01" label="동의합니다" checked={checked.agree} onChange={setChecked} />
                 <CustomCheckbox id="CustomCheckbox_02" label="동의합니다" checked={checked.agree2} onChange={setChecked} disabled="disabled" />
             </div>
 
-            <h2 className="title-h2">Checkbox</h2>
+            <h2 className="title-h2">Checkbox - original</h2>
             <div className="con-box">
                 <Checkbox id="checkbox_01" />
                 <Checkbox id="checkbox_02" checked />
