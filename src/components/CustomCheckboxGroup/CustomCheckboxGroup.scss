@@ -1,0 +1,26 @@
+@import "../../styles/shared";
+
+.checkbox-group {
+    .ui-checkbox {
+        padding:5px 10px;
+        cursor:pointer;
+        border:none;
+
+        &:hover {
+            background-color:#ddd;
+        }
+
+        &.checked {
+            color:#fff;
+            background-color:$color-primary;
+        }
+
+        &.checked:hover {
+            background-color:#0061c9;
+        } 
+        
+        & + .ui-checkbox {
+            margin-left:10px;
+        }
+    }
+}

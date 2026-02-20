@@ -7,7 +7,7 @@ export default function CustomCheckbox_02({
 }){
     // input change 이벤트 처리
     const handleClick = () => {
-        onChange(!checked);// 클릭할 때마다 상태 바꿔줘~ 부모에 요청
+        onChange(!checked);// 클릭할 때마다 상태 바꿔줘~ 부모에 요청 ==> true/false만 체크하는 건 단일 체크박스(토글)용
         console.log('클릭???', checked)
     }
 

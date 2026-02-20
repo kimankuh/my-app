@@ -1,0 +1,41 @@
+@import "../../styles/shared";
+
+.radio-origin {
+    position: relative;    
+
+    input {
+        appearance: none;
+
+        + label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding-left:26px;
+        }
+
+        + label:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 17px;
+            height: 17px;
+            border: 1px solid #999;
+            border-radius:50%;
+        }
+
+        &:checked + label:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 4px;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background-color: blue;
+            border-radius:50%;
+        }
+    }
+    
+}
