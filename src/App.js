@@ -13,6 +13,7 @@ import Radio from './components/Radio/Radio';
 import RadioGroup from './components/RadioGroup/RadioGroup';
 import Tab from './components/Tab/Tab';
 import Accordion from './components/Accordion/Accodion';
+import SingleAccordion from './components/SinlgeAccordion/SingleAccordion';
 
 
 function App() {
@@ -65,24 +66,24 @@ function App() {
     // 체크박스의 state를 배열로 관리하기 ==> 체크한 건 배열에 추가하고 해제한 건 배열에서 삭제
     const [checkedArray, setCheckedArray] = useState(['html']);// 초기값
 
-    const [radigoGroup, setRadioGroup] = useState('us');
+    const [radioGroup, setRadioGroup] = useState('us');
 
-    // 콘솔 찍어보자 => radigoGroup 값이 바뀔 때만(추천)
+    // 콘솔 찍어보자 => radioGroup 값이 바뀔 때만(추천)
     // 의존성 배열이 바뀔 때만 실행
     // 배열이 비어있으면 컴포넌트가 처음 마운트 될 때만 실행(API 처음 호출할 때 많이 씀)
     // 배열이 아예 없다면. 렌더마다 실행(무한루프 위험)
     useEffect(() => {
-        console.log('radigoGroup : ', radigoGroup);
+        console.log('radioGroup : ', radioGroup);
 
         // 콘솔 찍기
         // API 호출
         // DOM 직접 접근
         // 이벤트 등록
         // localStorage 사용
-    }, [radigoGroup]);
+    }, [radioGroup]);
     
     // 콘솔 찍어보자 => 렌더링마다(비추)
-    // console.log('radigoGroup : ', radigoGroup);
+    // console.log('radioGroup : ', radioGroup);
     
     // tab
     const tabData = [
@@ -121,7 +122,7 @@ function App() {
     // Accordion
     const accordionData = [
         {
-            id: 'acco-item-01',
+            id: 'item-01',
             title: 'HTML 질문',
             content: (
                 <div>
@@ -131,7 +132,7 @@ function App() {
             )
         },
         {
-            id: 'acco-item-02',
+            id: 'item-02',
             title: 'CSS 질문',
             content: (
                 <div>
@@ -141,7 +142,7 @@ function App() {
             )
         },
         {
-            id: 'acco-item-03',
+            id: 'item-03',
             title: 'JS 질문',
             content: (
                 <div>
@@ -154,7 +155,12 @@ function App() {
 
     return (
         <div className="App">
-            <h2 className="title-h2">Accordion</h2>
+            <h2 className="title-h2">Single Accodion</h2>
+            <div className="con-box">
+                <SingleAccordion items={accordionData} />
+            </div>
+
+            <h2 className="title-h2">Accordion(Multi)</h2>
             <div className="con-box">
                 <Accordion items={accordionData} />
             </div>
@@ -166,11 +172,11 @@ function App() {
             
             <h2 className="title-h2">RadioGroup</h2>
             <div className="con-box">
-                <RadioGroup name="RadioGroup" options={contryOptions} value={radigoGroup} onChange={setRadioGroup} />
+                <RadioGroup name="RadioGroup" options={contryOptions} value={radioGroup} onChange={setRadioGroup} />
 
                 {/* 상태를 기준으로 UI 제어 가능?? */}
-                <button onClick={() => console.log('radigoGroup : ', radigoGroup)}>제출</button>
-                <p>선택된 값: {radigoGroup}</p>
+                <button onClick={() => console.log('radioGroup : ', radioGroup)}>제출</button>
+                <p>선택된 값: {radioGroup}</p>
             </div>
 
             <h2 className="title-h2">Radio</h2>
