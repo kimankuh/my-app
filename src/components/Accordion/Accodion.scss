@@ -7,28 +7,31 @@
         width: 100%;
         text-align: left;
         cursor: pointer;
-    }
-    :before {
-        content:'';
-        position: absolute;
-        top: 50%;
-        right:10px;
-        width: 15px;
-        height: 2px;
-        background-color: #999;
-    }
-    :after {
-        content:'';
-        position: absolute;
-        top: 50%;
-        right:10px;
-        width: 15px;
-        height: 2px;
-        transform: rotate(-90deg);
-        background-color: #999;
-    }
 
-    [aria-expanded="true"]:after {
-        display: none;
+        &:before {
+            content:'';
+            position: absolute;
+            top: 50%;
+            right:10px;
+            width: 15px;
+            height: 2px;
+            background-color: #999;
+        }
+        &:after {
+            content:'';
+            position: absolute;
+            top: 50%;
+            right:10px;
+            width: 15px;
+            height: 2px;
+            transform: rotate(-90deg);
+            background-color: #999;
+        }
+        &[aria-expanded="true"]:after {
+            display: none;
+        }
     }
+    
+
+    
 }

@@ -14,6 +14,7 @@ import RadioGroup from './components/RadioGroup/RadioGroup';
 import Tab from './components/Tab/Tab';
 import Accordion from './components/Accordion/Accodion';
 import SingleAccordion from './components/SinlgeAccordion/SingleAccordion';
+import ModalPopup from './components/ModalPopup/ModalPopup';
 
 
 function App() {
@@ -153,8 +154,20 @@ function App() {
         }
     ];
 
+    // mopdalPopup
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
         <div className="App">
+            <h2 className="title-h2">Modal Popup</h2>
+            <div className="con-box">
+                <button type="button" onClick={() => setIsOpen(true)}>모달 열기</button>
+                <ModalPopup isOpen={isOpen} onClose={() => setIsOpen(false)}>
+                    <h3>모달 제목</h3>
+                    <p>모달 내용입니다.</p>
+                </ModalPopup>
+            </div>
+
             <h2 className="title-h2">Single Accodion</h2>
             <div className="con-box">
                 <SingleAccordion items={accordionData} />

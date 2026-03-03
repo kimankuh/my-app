@@ -10,7 +10,7 @@ export default function SingleAccordion({ items }){
             setOpenIndex(null);
         } else {
             setOpenIndex(index);
-        }        
+        }
     }
 
     // console.log('items', items)
@@ -18,7 +18,7 @@ export default function SingleAccordion({ items }){
         <div className="accordion">
             {items.map((item, index) => {
                 const isOpen = openIndex === index;
-                
+
                 return (
                 <div key={item.id} className="accordion-item">
                     <button id={`acoordion-${item.id}`} className="accordion-header" aria-expanded={isOpen} onClick={() => toggle(index)}>{item.title}</button>
